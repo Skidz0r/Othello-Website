@@ -758,3 +758,5 @@ function give_up() {
 function sair(){
   location.reload();
 }
+
+
