@@ -125,3 +125,162 @@ document.getElementById('amigo').addEventListener('click', function()
 {
 window.alert("Futuramente disponivel");
 });
+
+
+
+document.getElementById('botao_jogar').addEventListener('click', function()
+{
+  var user = document.getElementById("username");
+  var pass = document.getElementById("minha_pass");
+  if(user.value=="" || pass.value=="")
+    window.alert("Insert username and password before login!");
+  else{
+    loginServer();
+  }
+  
+
+
+});
+
+var url = 'http://twserver.alunos.dcc.fc.up.pt:8008/';
+
+//LOGIN
+function loginServer(){
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById("minha_pass").value;
+  username = user;
+  password = pass;
+  acc = {
+    nick : user,
+    pass : pass
+  }
+  fetch(url + "register",{
+    method: "POST",
+    body: JSON.stringify(acc),
+  })
+  .then(function (r){
+    //console.log(r.json);
+    return r.text();
+  })
+  .then(function (t){
+    //console.log(t);
+    if(t != "{}"){
+      window.alert("Username ou password errados!");
+    }
+    else{
+      document.getElementById('logo-inicial').style.display='none';
+      document.getElementById('online_text').style.display = 'none';
+      document.getElementById('escolha_online').style.display = 'block';
+    }
+  })
+  .catch(function (error){
+    console.log(error);
+    return;
+  });
+}
+
+document.getElementById('online_game').addEventListener('click', function()
+{
+  document.getElementById('total').style.display = 'none';
+  document.getElementById('game_online').style.display = 'block';
+  document.getElementById('logo-inicial').style.display='none';
+  document.getElementById('area-principal').style.display='block';
+  joinGame();
+});
+
+var color;
+var gameId;
+var groupName = "GameRR&RJ"; 
+
+//JOIN GAME
+function joinGame(){
+
+  game = {
+    group : groupName,
+    nick : username,
+    pass : password
+  }
+
+  fetch(url + "join",{
+    method: "POST",
+    body: JSON.stringify(game),
+  })
+  .then(function (r){
+    return r.json();
+  })
+  .then(function (t){
+    console.log(t);
+    gameId = t.game;
+    color  = t.color;
+  })
+  .catch(function (error){
+    console.log(error);
+    return;
+  });
+} 
+
+//LEAVE GAME
+function leaveGame(){
+  game = {
+    game : gameId,
+    nick : username,
+    pass : password
+  }
+
+  fetch(url + "leave",{
+    method: "POST",
+    body: JSON.stringify(game),
+  })
+  .then(function (r){
+    return r.text();
+  })
+  .then(function (t){
+    return t;
+  })
+  .catch(function (error){
+    console.log(error);
+    return;
+  });
+}
+
+//GET RANKING
+function getRanking(){
+  fetch(url + "ranking",{
+    method: "POST",
+    body: JSON.stringify(""),
+  })
+  .then(function (r){
+    return r.json();
+  })
+  .then(function (t){
+    // fazer funçao para mostrar os rankings
+  })
+  .catch(function (error){
+    console.log(error);
+    return;
+  });
+}
+
+//NOTIFY SERVER 
+function notifyServer(move){
+  game = {
+    nick : username,
+    pass : password,
+    game: gameId,
+    move: move
+  }
+  fetch(url + "notify",{
+    method:"POST",
+    body: JSON.stringify(game),
+  })
+  .then(function (r){
+    return r.text();
+  })
+  .then(function (t){
+    return t;
+  })
+  .catch(function (error){
+    console.log(error);
+    return;
+  });
+}

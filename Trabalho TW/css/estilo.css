@@ -31,7 +31,7 @@ html, body {
 {
 	width: 650px;
 	height:400px;
-	margin:20 auto;
+	margin:20px auto;
 	margin-left: 200px;
 	margin-bottom:50px;
 	padding: 15px;
@@ -45,7 +45,7 @@ html, body {
 {
 	width: 650px;
 	height:400px;
-	margin:20 auto;
+	margin:20px auto;
 	margin-left: 300px;
 	margin-bottom:50px;
 	padding: 15px;
@@ -59,7 +59,7 @@ html, body {
 {
 	width: 650px;
 	height:400px;
-	margin:20 auto;
+	margin:20px auto;
 	margin-left:350px;
 	margin-bottom:50px;
 	margin-top:70px;
@@ -74,7 +74,7 @@ html, body {
 {
 	width: 200px;
 	height:300px;
-	margin:20 auto;
+	margin:20px auto;
 	transform: scale(1.5);
 	margin-left: 500px;
 	margin-bottom:50px;
@@ -388,7 +388,7 @@ h1
 	display:block;
 }
 
-#botton_game1, #botton_game2{
+#botton_game1, #botton_game2, #botton_game11, #botton_game21{
 	 width:170px;
 	 height:30px;
 	 background-color:green;
@@ -416,7 +416,7 @@ h1
 }
 
 
-#vez_branca
+#vez_branca, #vez_branca1
 {
 	width:50px;
 	height:100px;
@@ -429,7 +429,7 @@ h1
   display:none;
 }
 
-#vez_preto
+#vez_preto, #vez_preto1
 {
 	width:50px;
 	height:100px;
@@ -442,7 +442,7 @@ h1
 	display:none;
 }
 
-#game
+#game, #game_online
 {
 	display: none;
 }
@@ -453,7 +453,7 @@ h1
 
 
 
-#give_up{
+#give_up, #give_up1 {
 	margin-top: 13em;
 	width:170px;
 	 height:20px;

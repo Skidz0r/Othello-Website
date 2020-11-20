@@ -10,11 +10,9 @@
 
 <body>
 	<div class="cabecalho">
-		<img class="fundo" src="imagens/Background.jpg" />
+		<img class="fundo" alt="imagem_fundo" src="imagens/Background.jpg" />
 	</div>
-
-	<br>
-	<br>
+	<br><br>
 	<div id="logo-inicial">
 	</div>
 	<div id="computer_wins">
@@ -23,13 +21,7 @@
 	</div>
 	<div id="empate">
 	</div>
-	<!--<div id="pontos_fim_do_jogo">
-		<div id="pontos_final_preto">
-		</div>
-		<div id="pontos_final_branco">
-		</div>
-	</div>
-	<!--tabuleiro-->
+
 	<div id="area-principal">
 		<div class="area-tabuleiro">
 			<b></b>
@@ -134,8 +126,15 @@
 						<input type="password" id="minha_pass" name="minha_pass">
 						<input type="checkbox" onclick="password()">
 						<h5>Mostrar<br>password</h5>
-						<button type="button" id="botao_jogar">Jogar
+						<button type="button" id="botao_jogar">Jogar  </button>
 					</form>
+				</div>
+			</div>
+
+			<div id="escolha_online" class="open_window">
+				<div class="janelaON_offline">
+					<span id="close_escolha_online"> &times;</span>
+					<button id="online_game" class="botaooo" name="pc">Find game</button>
 				</div>
 			</div>
 
@@ -241,7 +240,41 @@
 				</div>
 			</div>
 
+
+			
+
 			<div id="give_up" onclick=give_up()>
+				Desistir
+
+
+			</div>
+
+		</div>
+
+
+		<div id="game_online">
+			<div id="vez_preto1">
+			</div>
+			<div id="vez_branca1">
+			</div>
+
+			<div id="botton_game11">
+				Jogador1 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div id="branco1">
+				 <p id="pontos_branco1"></p>
+				</div>
+			</div>
+			<div id="botton_game21">
+				Jogador2 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div id="preto1">
+					<p id="pontos_preto1"></p>
+				</div>
+			</div>
+
+
+			
+
+			<div id="give_up1" onclick=give_up()>
 				Desistir
 
 
@@ -264,7 +297,6 @@
 		Design by Rita & Rui
 	</div>
 
-	</div>
 	<script src="jogo.js"></script>
 	<script src="algoritmo.js"></script>
 
